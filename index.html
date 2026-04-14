@@ -1486,10 +1486,10 @@
             <textarea class="form-control" id="message" placeholder="Occasion spéciale, demande particulière, logge communicant souhaité..."></textarea>
           </div>
         </div>
-        <button type="button" class="form-submit" onclick="envoyerWhatsApp()">
+        <a id="wa-submit" href="#" class="form-submit" onclick="return prepareWaLink(this, event)">
           <span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
           Envoyer ma demande via WhatsApp
-        </button>
+        </a>
         <p class="form-note">Votre demande sera envoyée sur WhatsApp. Notre équipe vous répond dans les 24 heures ouvrées pour confirmer votre réservation.</p>
       </div>
     </div>
@@ -1566,67 +1566,75 @@
     });
 
     /* === WHATSAPP FORMULAIRE === */
-    function envoyerWhatsApp() {
-      const prenom = document.getElementById('prenom').value.trim();
-      const nom    = document.getElementById('nom').value.trim();
-      const tel    = document.getElementById('tel').value.trim();
-      const email  = document.getElementById('email').value.trim();
-      const arrive = document.getElementById('arrive').value;
-      const depart = document.getElementById('depart').value;
-      const nbLodges = document.getElementById('lodges').value;
-      const pers   = document.getElementById('personnes').value;
-      const offre  = document.getElementById('offre').value;
-      const msg    = document.getElementById('message').value.trim();
+    function prepareWaLink(el, e) {
+      e.preventDefault();
+      var prenom   = document.getElementById('prenom').value.trim();
+      var nom      = document.getElementById('nom').value.trim();
+      var tel      = document.getElementById('tel').value.trim();
+      var email    = document.getElementById('email').value.trim();
+      var arrive   = document.getElementById('arrive').value;
+      var depart   = document.getElementById('depart').value;
+      var nbLodges = document.getElementById('lodges').value;
+      var pers     = document.getElementById('personnes').value;
+      var offre    = document.getElementById('offre').value;
+      var msg      = document.getElementById('message').value.trim();
 
-      if (!prenom || !nom || !tel || !arrive || !depart || !nbLodges || !pers || !offre) {
-        alert('Merci de remplir tous les champs obligatoires (*).');
-        return;
+      var manquants = [];
+      if (!prenom)   manquants.push('Prenom');
+      if (!nom)      manquants.push('Nom');
+      if (!tel)      manquants.push('Telephone');
+      if (!arrive)   manquants.push('Date arrivee');
+      if (!depart)   manquants.push('Date depart');
+      if (!nbLodges) manquants.push('Nombre de lodges');
+      if (!pers)     manquants.push('Nombre de personnes');
+      if (!offre)    manquants.push('Type offre');
+
+      if (manquants.length > 0) {
+        alert('Champs obligatoires manquants :\n- ' + manquants.join('\n- '));
+        return false;
       }
       if (new Date(depart) <= new Date(arrive)) {
-        alert('La date de départ doit être postérieure à la date d\'arrivée.');
-        return;
+        alert('La date de depart doit etre apres la date d\'arrivee.');
+        return false;
       }
 
-      const nuits = Math.round((new Date(depart) - new Date(arrive)) / (1000*60*60*24));
-      const fmt = (d) => { const [y,m,j] = d.split('-'); return j+'/'+m+'/'+y; };
+      var nuits = Math.round((new Date(depart) - new Date(arrive)) / 86400000);
+      function fmt(d) { var p = d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
 
-      let t = 'DEMANDE DE RESERVATION - LES LOFTS ASSINIE\n';
-      t += '-----------------------------\n';
-      t += 'Client : ' + prenom + ' ' + nom + '\n';
-      t += 'Tel : ' + tel + '\n';
-      if (email) t += 'Email : ' + email + '\n';
+      var t  = 'RESERVATION - LES LOFTS ASSINIE\n';
+      t += '----------------------------------\n';
+      t += 'Nom      : ' + prenom + ' ' + nom + '\n';
+      t += 'Tel      : ' + tel + '\n';
+      if (email) t += 'Email    : ' + email + '\n';
       t += '\n';
-      t += 'Arrivee : ' + fmt(arrive) + ' a 12h00\n';
-      t += 'Depart : ' + fmt(depart) + ' a 12h00\n';
-      t += 'Duree : ' + nuits + ' nuit' + (nuits > 1 ? 's' : '') + '\n';
+      t += 'Arrivee  : ' + fmt(arrive) + ' (12h00)\n';
+      t += 'Depart   : ' + fmt(depart) + ' (12h00)\n';
+      t += 'Duree    : ' + nuits + ' nuit' + (nuits > 1 ? 's' : '') + '\n';
       t += '\n';
-      t += 'Lodges : ' + nbLodges + '\n';
-      t += 'Personnes : ' + pers + '\n';
-      t += 'Offre : ' + offre + '\n';
-      if (msg) t += '\nMessage : ' + msg + '\n';
-      t += '\n-----------------------------';
+      t += 'Lodges   : ' + nbLodges + '\n';
+      t += 'Personnes: ' + pers + '\n';
+      t += 'Offre    : ' + offre + '\n';
+      if (msg) t += '\nMessage  : ' + msg + '\n';
 
-      /* Lien WhatsApp — ouverture via <a> caché pour contourner les popup blockers */
-      const waUrl = 'https://wa.me/2250706833957?text=' + encodeURIComponent(t);
-      const a = document.createElement('a');
-      a.href = waUrl;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      var waUrl = 'https://wa.me/2250706833957?text=' + encodeURIComponent(t);
+      el.href = waUrl;
+      el.target = '_blank';
+
+      var orig = el.innerHTML;
+      el.style.background = '#128c7e';
+      el.innerHTML = '<span style="font-size:1.1rem">&#10003;</span> Ouverture de WhatsApp...';
+      setTimeout(function() {
+        el.innerHTML = orig;
+        el.href = '#';
+        el.style.background = '';
+      }, 3000);
+
+      return true;
     }
 
     /* === WHATSAPP DIRECT === */
     function openWhatsAppDirect() {
-      const t = 'Bonjour, je souhaite obtenir des informations sur les lodges des Lofts Assinie.';
-      const a = document.createElement('a');
-      a.href = 'https://wa.me/2250706833957?text=' + encodeURIComponent(t);
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      window.open('https://wa.me/2250706833957?text=' + encodeURIComponent('Bonjour, je souhaite des informations sur les Lofts Assinie.'), '_blank');
     }
   </script>
 
