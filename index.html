@@ -755,13 +755,13 @@
     .resa-info-val { font-size: 0.9rem; color: var(--texte); line-height: 1.7; }
     .resa-info-val a { color: var(--rouge); font-weight: 600; }
     .resa-wa-direct {
-      background: #25D366; color: var(--blanc);
+      background: var(--rouge); color: var(--blanc);
       padding: 14px 20px;
       display: flex; align-items: center; gap: 12px;
       cursor: pointer; border: none; width: 100%; text-align: left;
       font-family: 'Raleway', sans-serif; transition: background 0.2s;
     }
-    .resa-wa-direct:hover { background: #1da851; }
+    .resa-wa-direct:hover { background: var(--rouge-dark); }
     .resa-wa-icon { font-size: 1.3rem; flex-shrink: 0; }
     .resa-wa-text strong { display: block; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; }
     .resa-wa-text span { font-size: 0.72rem; opacity: 0.8; }
@@ -797,14 +797,15 @@
     textarea.form-control { resize: vertical; min-height: 90px; }
     .form-submit {
       width: 100%; margin-top: 0.5rem;
-      background: #25D366; color: var(--blanc);
+      background: var(--rouge); color: var(--blanc);
       border: none; cursor: pointer;
       font-family: 'Raleway', sans-serif; font-size: 0.8rem;
       font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
       padding: 15px; transition: background 0.2s;
       display: flex; align-items: center; justify-content: center; gap: 10px;
     }
-    .form-submit:hover { background: #1da851; }
+    .form-submit:hover { background: var(--rouge-dark); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
     .form-note {
       font-size: 0.72rem; color: var(--texte-light);
       margin-top: 0.75rem; text-align: center; line-height: 1.5;
@@ -1403,13 +1404,13 @@
             <p class="resa-ico-inline"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span> <a href="mailto:cosyhomeconcept225@gmail.com">cosyhomeconcept225@gmail.com</a></p>
           </div>
         </div>
-        <button class="resa-wa-direct" onclick="openWhatsAppDirect()">
-          <span class="resa-wa-icon"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="13" y2="14"/></svg></span></span>
+        <a href="mailto:cosyhomeconcept225@gmail.com" class="resa-wa-direct" style="text-decoration:none; display:flex; align-items:center; gap:12px;">
+          <span class="resa-wa-icon"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span></span>
           <div class="resa-wa-text">
-            <strong>Contacter sur WhatsApp</strong>
-            <span>Réponse rapide garantie</span>
+            <strong>Envoyer un email direct</strong>
+            <span>cosyhomeconcept225@gmail.com</span>
           </div>
-        </button>
+        </a>
         <br>
         <div class="resa-info-block">
           <p class="resa-info-title">Rappel des conditions</p>
@@ -1458,7 +1459,7 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="lodges">Nombre de lodges *</label>
-            <select class="form-control" id="lodges" required>
+            <select class="form-control" id="nb-lodges" required>
               <option value="">Sélectionner</option>
               <option value="1">1 lodge</option>
               <option value="2">2 lodges</option>
@@ -1486,11 +1487,15 @@
             <textarea class="form-control" id="message" placeholder="Occasion spéciale, demande particulière, logge communicant souhaité..."></textarea>
           </div>
         </div>
-        <a id="wa-submit" href="#" class="form-submit" onclick="return prepareWaLink(this, event)">
-          <span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>
-          Envoyer ma demande via WhatsApp
-        </a>
-        <p class="form-note">Votre demande sera envoyée sur WhatsApp. Notre équipe vous répond dans les 24 heures ouvrées pour confirmer votre réservation.</p>
+        <button type="button" id="email-submit" class="form-submit" onclick="envoyerEmail()">
+<span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span> Envoyer ma demande par email
+        </button>
+
+        <div id="form-success" style="display:none; background:rgba(26,122,60,0.15); border:1px solid rgba(26,122,60,0.4); padding:1rem 1.25rem; margin-top:0.75rem; text-align:center;">
+          <p style="font-size:0.88rem; color:#1a7a3c; font-weight:600;">&#10003; Votre demande a bien été envoyée !</p>
+          <p style="font-size:0.78rem; color:var(--texte-light); margin-top:4px;">Notre équipe vous répond dans les 24 heures ouvrées.</p>
+        </div>
+        <p class="form-note">Votre demande sera envoyée à notre équipe par email. Nous vous répondons dans les 24 heures ouvrées.</p>
       </div>
     </div>
   </section>
@@ -1566,76 +1571,95 @@
     });
 
     /* === WHATSAPP FORMULAIRE === */
-    function prepareWaLink(el, e) {
-      e.preventDefault();
+    function envoyerEmail() {
       var prenom   = document.getElementById('prenom').value.trim();
       var nom      = document.getElementById('nom').value.trim();
       var tel      = document.getElementById('tel').value.trim();
       var email    = document.getElementById('email').value.trim();
       var arrive   = document.getElementById('arrive').value;
       var depart   = document.getElementById('depart').value;
-      var nbLodges = document.getElementById('lodges').value;
+      var nbLodges = document.getElementById('nb-lodges').value;
       var pers     = document.getElementById('personnes').value;
       var offre    = document.getElementById('offre').value;
       var msg      = document.getElementById('message').value.trim();
 
       var manquants = [];
-      if (!prenom)   manquants.push('Prenom');
-      if (!nom)      manquants.push('Nom');
-      if (!tel)      manquants.push('Telephone');
-      if (!arrive)   manquants.push('Date arrivee');
-      if (!depart)   manquants.push('Date depart');
-      if (!nbLodges) manquants.push('Nombre de lodges');
-      if (!pers)     manquants.push('Nombre de personnes');
-      if (!offre)    manquants.push('Type offre');
+      if (!prenom)   manquants.push("Prenom");
+      if (!nom)      manquants.push("Nom");
+      if (!tel)      manquants.push("Telephone");
+      if (!arrive)   manquants.push("Date d'arrivée");
+      if (!depart)   manquants.push('Date de départ');
+      if (!nbLodges) manquants.push("Nombre de lodges");
+      if (!pers)     manquants.push('Nb de personnes');
+      if (!offre)    manquants.push("Type d'offre");
 
       if (manquants.length > 0) {
-        alert('Champs obligatoires manquants :\n- ' + manquants.join('\n- '));
-        return false;
+        alert('Champs manquants :\n- ' + manquants.join('\n- '));
+        return;
       }
       if (new Date(depart) <= new Date(arrive)) {
-        alert('La date de depart doit etre apres la date d\'arrivee.');
-        return false;
+        alert("La date de depart doit etre apres la date d'arrivee.");
+        return;
       }
 
       var nuits = Math.round((new Date(depart) - new Date(arrive)) / 86400000);
       function fmt(d) { var p = d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
 
-      var t  = 'RESERVATION - LES LOFTS ASSINIE\n';
-      t += '----------------------------------\n';
-      t += 'Nom      : ' + prenom + ' ' + nom + '\n';
-      t += 'Tel      : ' + tel + '\n';
-      if (email) t += 'Email    : ' + email + '\n';
-      t += '\n';
-      t += 'Arrivee  : ' + fmt(arrive) + ' (12h00)\n';
-      t += 'Depart   : ' + fmt(depart) + ' (12h00)\n';
-      t += 'Duree    : ' + nuits + ' nuit' + (nuits > 1 ? 's' : '') + '\n';
-      t += '\n';
-      t += 'Lodges   : ' + nbLodges + '\n';
-      t += 'Personnes: ' + pers + '\n';
-      t += 'Offre    : ' + offre + '\n';
-      if (msg) t += '\nMessage  : ' + msg + '\n';
+      var btn = document.getElementById('email-submit');
+      btn.disabled = true;
+      btn.innerHTML = 'Envoi en cours...';
 
-      var waUrl = 'https://wa.me/2250706833957?text=' + encodeURIComponent(t);
-      el.href = waUrl;
-      el.target = '_blank';
+      var data = {
+        prenom: prenom,
+        nom: nom,
+        telephone: tel,
+        email_client: email || 'Non renseigné',
+        date_arrivee: fmt(arrive) + ' à 12h00',
+        date_depart: fmt(depart) + ' à 12h00',
+        duree: nuits + ' nuit' + (nuits > 1 ? 's' : ''),
+        nombre_lodges: nbLodges,
+        nombre_personnes: pers,
+        offre: offre,
+        message: msg || 'Aucun message',
+        _subject: 'Nouvelle demande de réservation — Les Lofts Assinie',
+        _replyto: email || tel
+      };
 
-      var orig = el.innerHTML;
-      el.style.background = '#128c7e';
-      el.innerHTML = '<span style="font-size:1.1rem">&#10003;</span> Ouverture de WhatsApp...';
-      setTimeout(function() {
-        el.innerHTML = orig;
-        el.href = '#';
-        el.style.background = '';
-      }, 3000);
-
-      return true;
+      fetch('https://formspree.io/f/VOTRE_ID_FORMSPREE', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function(response) { return response.json(); })
+      .then(function(result) {
+        if (result.ok) {
+          btn.innerHTML = '&#10003; Demande envoyée avec succès !';
+          btn.style.background = '#1a7a3c';
+          document.getElementById('form-success').style.display = 'block';
+          /* Réinitialiser le formulaire après 4s */
+          setTimeout(function() {
+            ['prenom','nom','tel','email','arrive','depart','nb-lodges','personnes','offre','message'].forEach(function(id) {
+              var el = document.getElementById(id);
+              if (el) el.value = '';
+            });
+            btn.disabled = false;
+            btn.innerHTML = svgSend + ' Envoyer ma demande par email';
+            btn.style.background = '';
+            document.getElementById('form-success').style.display = 'none';
+          }, 5000);
+        } else {
+          throw new Error('Erreur Formspree');
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.innerHTML = svgSend + ' Envoyer ma demande par email';
+        btn.style.background = '';
+        alert("Erreur d'envoi. Contactez-nous au +225 07 06 83 39 57 ou cosyhomeconcept225@gmail.com");
+      });
     }
 
-    /* === WHATSAPP DIRECT === */
-    function openWhatsAppDirect() {
-      window.open('https://wa.me/2250706833957?text=' + encodeURIComponent('Bonjour, je souhaite des informations sur les Lofts Assinie.'), '_blank');
-    }
+    var svgSend = '<span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>';
   </script>
 
   <!-- LIGHTBOX -->
