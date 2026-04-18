@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Les Lofts Assinie — by Cosy Home Concept</title>
-  <meta name="description" content="Les Lofts Assinie — 8 bungalows privatifs à Assinie Km 16,5. Immersion authentique, réservation directe sans intermédiaire.">
+  <meta name="description" content="Les Lofts Assinie — 8 Lofts privatifs à Assinie Km 16,5. Immersion authentique, réservation directe sans intermédiaire.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
   <style>
@@ -40,33 +40,33 @@
     p { font-weight: 400; line-height: 1.8; }
 
 
-    /* === GALERIE bungalowS === */
-    .bungalows-grid {
+    /* === GALERIE LoftS === */
+    .Lofts-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       grid-template-rows: repeat(2, 260px);
       gap: 4px;
       max-width: 1300px; margin: 0 auto 3rem;
     }
-    .bungalow-card {
+    .Loft-card {
       position: relative; overflow: hidden;
       cursor: pointer; background: var(--noir);
     }
-    .bungalow-card-bg {
+    .Loft-card-bg {
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
       transition: transform 0.5s ease;
     }
-    .bungalow-card:hover .bungalow-card-bg { transform: scale(1.06); }
-    .bungalow-overlay {
+    .Loft-card:hover .Loft-card-bg { transform: scale(1.06); }
+    .Loft-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 55%, transparent 100%);
       transition: background 0.3s;
     }
-    .bungalow-card:hover .bungalow-overlay {
+    .Loft-card:hover .Loft-overlay {
       background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
     }
-    .bungalow-zoom-icon {
+    .Loft-zoom-icon {
       position: absolute; top: 12px; right: 12px;
       width: 32px; height: 32px;
       background: rgba(237,171,63,0.9); color: var(--noir);
@@ -75,32 +75,32 @@
       opacity: 0; transform: translateY(-4px);
       transition: opacity 0.25s, transform 0.25s;
     }
-    .bungalow-card:hover .bungalow-zoom-icon { opacity: 1; transform: translateY(0); }
-    .bungalow-content {
+    .Loft-card:hover .Loft-zoom-icon { opacity: 1; transform: translateY(0); }
+    .Loft-content {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 1.25rem 1rem;
       transform: translateY(4px);
       transition: transform 0.3s;
     }
-    .bungalow-card:hover .bungalow-content { transform: translateY(0); }
-    .bungalow-num {
+    .Loft-card:hover .Loft-content { transform: translateY(0); }
+    .Loft-num {
       font-family: 'Raleway', sans-serif; font-size: 0.58rem;
       letter-spacing: 0.25em; color: var(--or);
       text-transform: uppercase; margin-bottom: 0.2rem;
     }
-    .bungalow-name {
+    .Loft-name {
       font-family: 'Cinzel', serif; font-size: 0.92rem;
       color: var(--blanc); font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .bungalow-desc {
+    .Loft-desc {
       font-size: 0.7rem; color: rgba(255,255,255,0.6);
       margin-top: 0.3rem; font-weight: 300;
       opacity: 0; transform: translateY(4px);
       transition: opacity 0.3s 0.05s, transform 0.3s 0.05s;
     }
-    .bungalow-card:hover .bungalow-desc { opacity: 1; transform: translateY(0); }
-    .bungalow-tag {
+    .Loft-card:hover .Loft-desc { opacity: 1; transform: translateY(0); }
+    .Loft-tag {
       display: inline-block; margin-top: 0.5rem;
       background: var(--or); color: var(--noir);
       font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em;
@@ -165,11 +165,11 @@
     .lb-thumb.lb-thumb-active { opacity: 1; border-color: var(--or); }
 
     @media (max-width: 1024px) {
-      .bungalows-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, 240px); }
+      .Lofts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, 240px); }
     }
     @media (max-width: 600px) {
-      .bungalows-grid { grid-template-columns: 1fr; grid-template-rows: none; }
-      .bungalow-card { height: 220px; }
+      .Lofts-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+      .Loft-card { height: 220px; }
     }
 
 
@@ -428,65 +428,65 @@
       .concept-text { padding: 4rem 7%; }
     }
 
-    /* ===== bungalowS ===== */
-    .bungalows { background: var(--blanc); padding: 6rem 6%; }
-    .bungalows-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
-    .bungalows-header h2 { text-transform: uppercase; }
-    .bungalows-header p { color: var(--texte-light); font-weight: 300; margin-top: 1rem; }
-    .bungalows-grid {
+    /* ===== LoftS ===== */
+    .Lofts { background: var(--blanc); padding: 6rem 6%; }
+    .Lofts-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+    .Lofts-header h2 { text-transform: uppercase; }
+    .Lofts-header p { color: var(--texte-light); font-weight: 300; margin-top: 1rem; }
+    .Lofts-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2px; max-width: 1300px; margin: 0 auto 3rem;
     }
-    .bungalow-card {
+    .Loft-card {
       position: relative; overflow: hidden;
       aspect-ratio: 3/4; min-height: 320px;
       cursor: pointer;
     }
-    .bungalow-card-bg {
+    .Loft-card-bg {
       position: absolute; inset: 0;
       transition: transform 0.5s ease;
     }
-    .bungalow-card:hover .bungalow-card-bg { transform: scale(1.04); }
-    .bungalow-bg-1 { background: linear-gradient(160deg, #CE1417 0%, #8B1010 60%, #5A0A0A 100%); }
-    .bungalow-bg-2 { background: linear-gradient(160deg, #A0420A 0%, #CE7A14 50%, #EDAB3F 100%); }
-    .bungalow-bg-3 { background: linear-gradient(160deg, #5A2E0A 0%, #8B4A1A 50%, #CE7A14 100%); }
-    .bungalow-bg-4 { background: linear-gradient(160deg, #8B1010 0%, #CE1417 40%, #A0300A 100%); }
+    .Loft-card:hover .Loft-card-bg { transform: scale(1.04); }
+    .Loft-bg-1 { background: linear-gradient(160deg, #CE1417 0%, #8B1010 60%, #5A0A0A 100%); }
+    .Loft-bg-2 { background: linear-gradient(160deg, #A0420A 0%, #CE7A14 50%, #EDAB3F 100%); }
+    .Loft-bg-3 { background: linear-gradient(160deg, #5A2E0A 0%, #8B4A1A 50%, #CE7A14 100%); }
+    .Loft-bg-4 { background: linear-gradient(160deg, #8B1010 0%, #CE1417 40%, #A0300A 100%); }
     /* Pour utiliser les vraies photos: */
-    /* .bungalow-bg-1 { background-image: url('images/bungalow-1.jpg'); background-size: cover; background-position: center; } */
-    .bungalow-overlay {
+    /* .Loft-bg-1 { background-image: url('images/Loft-1.jpg'); background-size: cover; background-position: center; } */
+    .Loft-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
     }
-    .bungalow-content {
+    .Loft-content {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: 2rem 1.5rem;
     }
-    .bungalow-num {
+    .Loft-num {
       font-family: 'Cinzel', serif; font-size: 0.6rem;
       letter-spacing: 0.25em; color: var(--or);
       text-transform: uppercase; margin-bottom: 0.4rem;
     }
-    .bungalow-name {
+    .Loft-name {
       font-family: 'Cinzel', serif; font-size: 1.1rem;
       color: var(--blanc); font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.06em;
     }
-    .bungalow-desc {
+    .Loft-desc {
       font-size: 0.78rem; color: rgba(255,255,255,0.7);
       margin-top: 0.4rem; font-weight: 300;
     }
-    .bungalow-tag {
+    .Loft-tag {
       display: inline-block; margin-top: 0.7rem;
       background: var(--or); color: var(--noir);
       font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
       text-transform: uppercase; padding: 4px 10px;
     }
-    .bungalows-note {
+    .Lofts-note {
       background: var(--creme); border-left: 4px solid var(--rouge);
       padding: 1.5rem 2rem; max-width: 700px; margin: 0 auto;
     }
-    .bungalows-note p { font-size: 0.9rem; color: var(--texte-light); }
-    .bungalows-note strong { color: var(--rouge); }
+    .Lofts-note p { font-size: 0.9rem; color: var(--texte-light); }
+    .Lofts-note strong { color: var(--rouge); }
 
     /* ===== OFFRES ===== */
     .offres { background: var(--noir); padding: 6rem 6%; }
@@ -924,11 +924,11 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-burger { display: flex; }
-      .bungalows-grid { grid-template-columns: 1fr 1fr; }
+      .Lofts-grid { grid-template-columns: 1fr 1fr; }
       .conditions-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .bungalows-grid { grid-template-columns: 1fr; }
+      .Lofts-grid { grid-template-columns: 1fr; }
       .offres-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -942,7 +942,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#concept">Le Concept</a></li>
-      <li><a href="#bungalows">Les bungalows</a></li>
+      <li><a href="#Lofts">Les Lofts</a></li>
       <li><a href="#offres">Nos Offres</a></li>
       <li><a href="#equipements">Services</a></li>
       <li><a href="#conditions">Conditions</a></li>
@@ -955,7 +955,7 @@
 
   <div class="nav-mobile" id="navMobile">
     <a href="#concept" onclick="closeMenu()">Le Concept</a>
-    <a href="#bungalows" onclick="closeMenu()">Les bungalows</a>
+    <a href="#Lofts" onclick="closeMenu()">Les Lofts</a>
     <a href="#offres" onclick="closeMenu()">Nos Offres</a>
     <a href="#equipements" onclick="closeMenu()">Services</a>
     <a href="#conditions" onclick="closeMenu()">Conditions</a>
@@ -973,10 +973,10 @@
     <div class="hero-content">
       <p class="hero-eyebrow">Les Lofts Assinie · Cosy Home Concept · Assinie-Mafia, Km 16,5</p>
       <h1>Un village,<br><span>mille émotions</span></h1>
-      <p class="hero-sub">8 bungalows privatifs à Assinie Km 16,5. Une immersion authentique entre terre ivoirienne et littoral, loin du quotidien.</p>
+      <p class="hero-sub">8 Lofts privatifs à Assinie Km 16,5. Une immersion authentique entre terre ivoirienne et littoral, loin du quotidien.</p>
       <div class="hero-btns">
-        <a href="#reservation" class="btn btn--rouge">Réserver un bungalow</a>
-        <a href="#bungalows" class="btn btn--outline">Découvrir</a>
+        <a href="#reservation" class="btn btn--rouge">Réserver un Loft</a>
+        <a href="#Lofts" class="btn btn--outline">Découvrir</a>
       </div>
     </div>
     <div class="hero-badge">
@@ -990,7 +990,7 @@
       <div class="info-icon"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V10.5z"/><path d="M9 21v-9h6v9"/></svg></span></div>
       <div>
         <span class="info-label">Hébergement</span>
-        <span class="info-val">8 bungalows privatifs</span>
+        <span class="info-val">8 Lofts privatifs</span>
       </div>
     </div>
     <div class="info-item">
@@ -1023,96 +1023,96 @@
       <div class="concept-quote reveal">"Tradition et modernité, terre et verdure,<br>solitude et partage."</div>
       <p class="reveal">Chez Les Lofts Assinie, nos hôtes vivent une parenthèse sensorielle unique : ils délaissent le littoral attendu pour redécouvrir la terre, ses traditions et sa convivialité.</p>
       <br>
-      <p class="reveal">Entre bungalows ouverts sur l'extérieur et feu de camp partagé, entre intimité et vie communautaire, nous proposons plus qu'un hébergement — une immersion où chaque instant invite à se déconnecter du quotidien, à réveiller ses sens et à se reconnecter à l'essentiel.</p>
+      <p class="reveal">Entre Lofts ouverts sur l'extérieur et feu de camp partagé, entre intimité et vie communautaire, nous proposons plus qu'un hébergement — une immersion où chaque instant invite à se déconnecter du quotidien, à réveiller ses sens et à se reconnecter à l'essentiel.</p>
       <br>
       <a href="#reservation" class="btn btn--rouge reveal" style="margin-top:0.5rem;">Réserver mon séjour</a>
     </div>
   </section>
 
-  <!-- ===== bungalowS ===== -->
-  <section class="bungalows" id="bungalows">
-    <div class="bungalows-header reveal">
+  <!-- ===== LoftS ===== -->
+  <section class="Lofts" id="Lofts">
+    <div class="Lofts-header reveal">
       <p class="section-label">Nos Hébergements</p>
-      <h2>Les bungalows</h2>
+      <h2>Les Lofts</h2>
       <div class="separator separator--center"></div>
-      <p>8 bungalows privatifs alliant confort moderne et authenticité villageoise. Chaque bungalow est une chambre privative avec sa propre atmosphère, son jacuzzi et ses douches intérieure &amp; extérieure.</p>
+      <p>8 Lofts privatifs alliant confort moderne et authenticité villageoise. Chaque Loft est une chambre privative avec sa propre atmosphère, son jacuzzi et ses douches intérieure &amp; extérieure.</p>
     </div>
-        <div class="bungalows-grid reveal">
-      <div class="bungalow-card" onclick="openLightbox(0)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_09f3c12404914693b948636e173dea82~mv2.jpeg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Vue extérieure</p>
-          <p class="bungalow-desc">Ruelle privée · entrées privées · sécurité garantie</p>
+        <div class="Lofts-grid reveal">
+      <div class="Loft-card" onclick="openLightbox(0)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_09f3c12404914693b948636e173dea82~mv2.jpeg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Vue extérieure</p>
+          <p class="Loft-desc">Ruelle privée · entrées privées · sécurité garantie</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(1)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_f745a026932c4563a0c954d6cd5017f7~mv2.jpg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Espace de vie</p>
-          <p class="bungalow-desc">Sièges tissés · Décoration atypique · Couleurs terre</p>
+      <div class="Loft-card" onclick="openLightbox(1)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_f745a026932c4563a0c954d6cd5017f7~mv2.jpg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Espace de vie</p>
+          <p class="Loft-desc">Sièges tissés · Décoration atypique · Couleurs terre</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(2)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_9adf4822c7f840419c68723b6a42433a~mv2.jpg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Espace de vie</p>
-          <p class="bungalow-desc">Hangard ouvert · Jacuzzi · Jardin verdoyant</p>
+      <div class="Loft-card" onclick="openLightbox(2)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_9adf4822c7f840419c68723b6a42433a~mv2.jpg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Espace de vie</p>
+          <p class="Loft-desc">Hangard ouvert · Jacuzzi · Jardin verdoyant</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(3)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_65a64923732742dfa642957a25f62f0f~mv2.jpeg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Espace de vie</p>
-          <p class="bungalow-desc">Décoration athypique · Vue jacuzzi privé</p>
+      <div class="Loft-card" onclick="openLightbox(3)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_65a64923732742dfa642957a25f62f0f~mv2.jpeg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Espace de vie</p>
+          <p class="Loft-desc">Décoration athypique · Vue jacuzzi privé</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(4)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_17ae9ee048d8489fb1e794caf4f17d81~mv2.png')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Chambre</p>
-          <p class="bungalow-desc">Décoration athypique · Climatisée</p>
+      <div class="Loft-card" onclick="openLightbox(4)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_17ae9ee048d8489fb1e794caf4f17d81~mv2.png')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Chambre</p>
+          <p class="Loft-desc">Décoration athypique · Climatisée</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(5)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_6151e2da588c4b64adb87736a9f39ae4~mv2.jpeg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Douche extérieure</p>
-          <p class="bungalow-desc">Expérience unique · sous les étoiles</p>
+      <div class="Loft-card" onclick="openLightbox(5)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_6151e2da588c4b64adb87736a9f39ae4~mv2.jpeg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Douche extérieure</p>
+          <p class="Loft-desc">Expérience unique · sous les étoiles</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(6)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_4f87e2dd8fdd4677a113b63fca8ed9c7~mv2.jpeg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Douche à l'italienne</p>
-          <p class="bungalow-desc">Epuée · Chic</p>
+      <div class="Loft-card" onclick="openLightbox(6)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_4f87e2dd8fdd4677a113b63fca8ed9c7~mv2.jpeg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Douche à l'italienne</p>
+          <p class="Loft-desc">Epuée · Chic</p>
         </div>
       </div>
-      <div class="bungalow-card" onclick="openLightbox(7)">
-        <div class="bungalow-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_0379d311fb4f4a3990cd498d1d70131c~mv2.jpeg')"></div>
-        <div class="bungalow-overlay"></div>
-        <div class="bungalow-zoom-icon">&#x26F6;</div>
-        <div class="bungalow-content">
-          <p class="bungalow-name">Aménities</p>
-          <p class="bungalow-desc">Détails</p>
+      <div class="Loft-card" onclick="openLightbox(7)">
+        <div class="Loft-card-bg" style="background-image:url('https://static.wixstatic.com/media/d3492f_0379d311fb4f4a3990cd498d1d70131c~mv2.jpeg')"></div>
+        <div class="Loft-overlay"></div>
+        <div class="Loft-zoom-icon">&#x26F6;</div>
+        <div class="Loft-content">
+          <p class="Loft-name">Aménities</p>
+          <p class="Loft-desc">Détails</p>
         </div>
       </div>
     </div>
-    <div class="bungalows-note reveal">
-      <p><strong>Terrain privatif disponible</strong> — En plus des 8 bungalows, Les Lofts Assinie dispose d'un grand espace en bordure de voie, idéal pour les réceptions privées, team buildings ou célébrations en groupe. Tarif sur devis.</p>
+    <div class="Lofts-note reveal">
+      <p><strong>Terrain privatif disponible</strong> — En plus des 8 Lofts, Les Lofts Assinie dispose d'un grand espace en bordure de voie, idéal pour les réceptions privées, team buildings ou célébrations en groupe. Tarif sur devis.</p>
     </div>
   </section>
 
@@ -1122,7 +1122,7 @@
       <p class="section-label">Nos Offres</p>
       <h2>Tarifs &amp; Packages</h2>
       <div class="separator separator--or separator--center"></div>
-      <p>Hébergement seul ou packages enrichis d'expériences. Remise de 15% à partir du 2ème bungalow.</p>
+      <p>Hébergement seul ou packages enrichis d'expériences. Remise de 15% à partir du 2ème Loft.</p>
     </div>
 
     <!-- BANDEAU PROMO LANCEMENT -->
@@ -1139,7 +1139,7 @@
           <p class="offre-prix">
             <span class="offre-prix-ancien">100 000</span>80 000<span class="offre-prix-unit"> FCFA</span>
           </p>
-          <p class="offre-prix-unit">à partir de · par nuit / par bungalow</p>
+          <p class="offre-prix-unit">à partir de · par nuit / par Loft</p>
           <p class="offre-promo-periode">Valable du 20 avril au 20 mai 2026</p>
         </div>
         <p class="offre-name">Hébergement Seul</p>
@@ -1148,8 +1148,8 @@
           <li>Tarif semaine (dim–jeu) : 100 000 FCFA / nuit</li>
           <li>Tarif week-end (ven–sam) : 120 000 FCFA / nuit</li>
           <li>Vacances scolaires : 110 000 FCFA / nuit</li>
-          <li>–15% sur le 2ème bungalow</li>
-          <li>Accès vélos 2 heures</li>
+          <li>–15% sur le 2ème Loft</li>
+          <li>Accès vélos inclus</li>
           <li>Plateau d'accueil salle de bain</li>
         </ul>
         <div class="offre-cta">
@@ -1161,16 +1161,16 @@
       <div class="offre-card" style="border-color: rgba(237,171,63,0.25);">
         <div>
           <p class="offre-prix offre-prix-or" style="font-size:1.6rem;">Sur Devis</p>
-          <p class="offre-prix-unit">Location complète · 8 bungalows</p>
+          <p class="offre-prix-unit">Location complète · 8 Lofts</p>
         </div>
         <p class="offre-name">Privatisation</p>
         <p class="offre-sub">Anniversaires, mariages, séminaires, team building…</p>
         <ul class="offre-inclus">
-          <li>Location intégralité des 8 bungalows</li>
+          <li>Location intégralité des 8 Lofts</li>
           <li>Accès cours pour privatisation</li>
-          <li>–15% sur chaque bungalow dès le 2ème</li>
+          <li>–15% sur chaque Loft dès le 2ème</li>
           <li>Accès feu de camp</li>
-          <li>Accès vélos demi-journée</li>
+          <li>Accès vélos inclus</li>
           <li>Organisation d'événements possible</li>
         </ul>
         <div class="offre-cta">
@@ -1211,7 +1211,7 @@
             <ul class="activite-inclus">
               <li>Balade en pinasse (~1h)</li>
               <li>Visite des îles et mangroves</li>
-              <li>Pause détente et déjeuner à l'embouchure</li>
+              <li>Pause détente à l'embouchure</li>
               <li>Observation coucher du soleil sur le retour</li>
               <li>Guide de navigation inclus</li>
             </ul>
@@ -1235,7 +1235,7 @@
               <li>Promenade guidée en forêt</li>
               <li>Explication faune &amp; flore locale</li>
               <li>Visite des îles et mangroves</li>
-              <li>Pause détente et déjeuner à l'embouchure</li>
+              <li>Pause détente à l'embouchure</li>
               <li>Observation coucher du soleil sur le retour</li>
               <li>Guide forestier inclus</li>
             </ul>
@@ -1298,7 +1298,7 @@
     </div>
     <div class="equip-layout reveal">
       <div>
-        <p class="equip-col-title">Dans chaque bungalow</p>
+        <p class="equip-col-title">Dans chaque Loft</p>
         <div class="equip-list">
           <div class="equip-item"><span class="equip-ico"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z"/><path d="M6 12V5a2 2 0 0 1 2-2h3v2.25"/><line x1="4" y1="21" x2="4" y2="22"/><line x1="20" y1="21" x2="20" y2="22"/></svg></span></span><span class="equip-txt">Jacuzzi privatif</span></div>
           <div class="equip-item"><span class="equip-ico"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h1"/><path d="M4 7h1"/><path d="M4 10h1"/><path d="M5 4c3-1 6-.5 8 2s3 5 2 8"/><circle cx="16" cy="14" r="4"/><line x1="16" y1="18" x2="16" y2="22"/><line x1="13" y1="22" x2="19" y2="22"/></svg></span></span><span class="equip-txt">Douches intérieure et extérieure</span></div>
@@ -1355,7 +1355,7 @@
         <p class="condition-text">
           <strong>Check-in : 12h00</strong><br>
           <strong>Check-out : 12h00</strong><br><br>
-          Merci de respecter ces horaires pour permettre la préparation de votre bungalow dans les meilleures conditions. Tout départ tardif est soumis à facturation complémentaire.
+          Merci de respecter ces horaires pour permettre la préparation de votre Loft dans les meilleures conditions. Tout départ tardif est soumis à facturation complémentaire.
         </p>
       </div>
       <div class="condition-card">
@@ -1363,7 +1363,7 @@
         <p class="condition-title">Acompte &amp; Paiement</p>
         <p class="condition-text">
           <strong>60% du montant total</strong> est exigé pour la réservation de votre séjour.<br><br>
-          Le solde restant (40%) est réglable au plus tard le jour J avant d'avoir accès à votre bungalow.<br><br>
+          Le solde restant (40%) est réglable au plus tard le jour J avant d'avoir accès à votre Loft.<br><br>
           Modes de paiement acceptés : <strong>Espèces · Wave · Orange Money · Djamo · Virement - Toujours inclure les frais</strong>
         </p>
       </div>
@@ -1381,7 +1381,7 @@
         <p class="condition-title">Règlement intérieur</p>
         <p class="condition-text">
           Séjour de <strong>1 nuit minimum</strong> (2 nuits minimum en saison haute - Noël, Nouvel an, Pâques, etc).<br><br>
-          Tous nos bungalows communiquent entre eux; Solution idéale pour les groupes d'ami.e.s et les familles avec enfants <strong>à partir de 12 ans</strong>.<br><br>
+          Tous nos Lofts communiquent entre eux; Solution idéale pour les groupes d'ami.e.s et les familles avec enfants <strong>à partir de 12 ans</strong>.<br><br>
           Les nuisances sonores sont interdites après 22h00 par respect des autres hôtes.
         </p>
       </div>
@@ -1389,8 +1389,8 @@
         <div class="condition-ico"><span class="ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V10.5z"/><path d="M9 21v-9h6v9"/></svg></span></div>
         <p class="condition-title">Entretien &amp; Respect</p>
         <p class="condition-text">
-          Les bungalows doivent être rendus dans l'état dans lequel ils ont été trouvés. Tout dommage constaté fera l'objet d'une facturation.<br><br>
-          Il est interdit de déplacer le mobilier sans accord préalable. Les barbecues et feux ouverts ne sont pas autorisés à l'interrieur des bungalows.
+          Les Lofts doivent être rendus dans l'état dans lequel ils ont été trouvés. Tout dommage constaté fera l'objet d'une facturation.<br><br>
+          Il est interdit de déplacer le mobilier sans accord préalable. Les barbecues et feux ouverts ne sont pas autorisés à l'interrieur des Lofts.
         </p>
       </div>
       <div class="condition-card">
@@ -1415,7 +1415,7 @@
   <section class="reservation" id="reservation">
     <div class="resa-header reveal">
       <p class="section-label">Réservation Directe</p>
-      <h2>Réserver votre bungalow</h2>
+      <h2>Réserver votre Loft</h2>
       <div class="separator separator--center"></div>
       <p>Complétez le formulaire ci-dessous. Notre équipe vous contacte dans les 24h pour confirmer votre séjour et les modalités.</p>
     </div>
@@ -1483,14 +1483,14 @@
             <input class="form-control" type="date" id="depart" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="bungalows">Nombre de bungalows *</label>
-            <select class="form-control" id="nb-bungalows" required>
+            <label class="form-label" for="Lofts">Nombre de Lofts *</label>
+            <select class="form-control" id="nb-Lofts" required>
               <option value="">Sélectionner</option>
-              <option value="1">1 bungalow</option>
-              <option value="2">2 bungalows</option>
-              <option value="3">3 bungalows</option>
-              <option value="4">4 bungalows ou plus</option>
-              <option value="Tous (8)">Privatisation totale (8 bungalows)</option>
+              <option value="1">1 Loft</option>
+              <option value="2">2 Lofts</option>
+              <option value="3">3 Lofts</option>
+              <option value="4">4 Lofts ou plus</option>
+              <option value="Tous (8)">Privatisation totale (8 Lofts)</option>
             </select>
           </div>
           <div class="form-group">
@@ -1530,12 +1530,12 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="https://static.wixstatic.com/media/d3492f_b606b6e15e154754bfbdecf3dd04acff~mv2.png" alt="Les Lofts Assinie" style="height:80px; width:auto; object-fit:contain; display:block; margin-bottom:1rem;">
-        <p>Façonneurs de liberté et d'expériences. 8 bungalows privatifs alliant confort moderne et authenticité villageoise à Assinie-Mafia, Côte d'Ivoire.</p>
+        <p>Façonneurs de liberté et d'expériences. 8 Lofts privatifs alliant confort moderne et authenticité villageoise à Assinie-Mafia, Côte d'Ivoire.</p>
       </div>
       <ul class="footer-col">
         <li><p class="footer-col-title">Navigation</p></li>
         <li><a href="#concept">Le Concept</a></li>
-        <li><a href="#bungalows">Les bungalows</a></li>
+        <li><a href="#Lofts">Les Lofts</a></li>
         <li><a href="#offres">Nos Offres</a></li>
         <li><a href="#equipements">Services</a></li>
         <li><a href="#conditions">Conditions</a></li>
@@ -1603,7 +1603,7 @@
       var email    = document.getElementById('email').value.trim();
       var arrive   = document.getElementById('arrive').value;
       var depart   = document.getElementById('depart').value;
-      var nbbungalows = document.getElementById('nb-bungalows').value;
+      var nbLofts = document.getElementById('nb-Lofts').value;
       var pers     = document.getElementById('personnes').value;
       var offre    = document.getElementById('offre').value;
       var msg      = document.getElementById('message').value.trim();
@@ -1614,7 +1614,7 @@
       if (!tel)      manquants.push("Telephone");
       if (!arrive)   manquants.push("Date d'arrivée");
       if (!depart)   manquants.push('Date de départ');
-      if (!nbbungalows) manquants.push("Nombre de bungalows");
+      if (!nbLofts) manquants.push("Nombre de Lofts");
       if (!pers)     manquants.push('Nb de personnes');
       if (!offre)    manquants.push("Type d'offre");
 
@@ -1642,7 +1642,7 @@
         date_arrivee: fmt(arrive) + ' à 12h00',
         date_depart: fmt(depart) + ' à 12h00',
         duree: nuits + ' nuit' + (nuits > 1 ? 's' : ''),
-        nombre_bungalows: nbbungalows,
+        nombre_Lofts: nbLofts,
         nombre_personnes: pers,
         offre: offre,
         message: msg || 'Aucun message',
@@ -1663,7 +1663,7 @@
           document.getElementById('form-success').style.display = 'block';
           /* Réinitialiser le formulaire après 4s */
           setTimeout(function() {
-            ['prenom','nom','tel','email','arrive','depart','nb-bungalows','personnes','offre','message'].forEach(function(id) {
+            ['prenom','nom','tel','email','arrive','depart','nb-Lofts','personnes','offre','message'].forEach(function(id) {
               var el = document.getElementById(id);
               if (el) el.value = '';
             });
